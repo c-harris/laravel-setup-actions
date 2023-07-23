@@ -26,6 +26,10 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
+    - name: Check app directory for syntax errors
+      run: ./phplint.sh -L ./app
+    - name: Check tests directory for syntax errors
+      run: ./phplint.sh -L ./tests
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
